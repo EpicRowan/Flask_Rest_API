@@ -29,6 +29,14 @@ class Product(db.Model):
 		self.price = price
 		self.qty = qty 
 
+class ProductSchema(ma.Schema):
+	class Meta:
+		#fields that we want to show
+		fields = ('id', 'name', 'description', 'price', 'qty')
+
+#Init schema
+product_schema = ProductSchema(strict=True)
+products_schema = ProductSchema(many=True, strict=True)
 
 
 # @app.route('/', methods=['GET'])
